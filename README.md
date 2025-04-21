@@ -4,7 +4,15 @@ This application is meant to scrape the internet for intern positions from a pre
 Make sure you have Node.js and npm installed
 To run this application, run:
 `npm install`
-`npm run start` or `npm run devStart` to auto-restart the server
+```
+npm install
+npm run start
+```
+or 
+```
+npm run devStart
+```
+to auto-restart the server with nodemon
 ## Companies
 The list of supported companies can be found in [this spreadsheet](https://docs.google.com/spreadsheets/d/1kNesURBzUGJBTGEnVRp_krIUi35DgWyEwB0Y2wRq0F0/edit?usp=sharing)
 ## Progress
