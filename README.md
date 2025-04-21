@@ -3,7 +3,6 @@ This application is meant to scrape the internet for intern positions from a pre
 ## Development
 Make sure you have Node.js and npm installed
 To run this application, run:
-`npm install`
 ```
 npm install
 npm run start
