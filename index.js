@@ -1,3 +1,4 @@
+import { exit } from "process";
 import { scraper } from "./scraper.mjs";
 import { readFile, writeFile } from 'fs/promises';
 
@@ -11,9 +12,10 @@ let results = []
 
 
 
-// const a = await scraper("https://fa-evmr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/jobs?keyword=intern&lastSelectedFacet=TITLES&location=Ottawa%2C+Ontario%2C+Canada&locationId=100000018991137&locationLevel=city&mode=location&radius=25&radiusUnit=MI&selectedTitlesFacet=TRA", ".search-results > a", ".job-tile__title")
+const a = await scraper("https://careers-kinaxis.icims.com/jobs/search?ss=1&searchRelation=keyword_all&searchLocation=12955-12964-Ottawa", ".iCIMS_Anchor", ".iCIMS_Anchor h3", "https://careers-kinaxis.icims.com/jobs/search?ss=1&searchRelation=keyword_all&searchLocation=12955-12964-Ottawa&in_iframe=1")
 
-// console.log(a)
+console.log(a)
+exit(1)
 
 for (let company of jsonData) {
     let jsonResult = { name: company.name, positions: [] }

@@ -8,7 +8,7 @@ export async function scraper(targetPath, linkClass, titleClass=null, iframeClas
   try {
     
     // Launch browser and open a browser page (chrome)
-    const browser = await puppeteer.launch();  // Use param: { headless: false } to see the actual page rendering
+    const browser = await puppeteer.launch({headless:false});  // Use param: { headless: false } to see the actual page rendering
     let page = await browser.newPage();
 
     // Go to a specific job site on workday
