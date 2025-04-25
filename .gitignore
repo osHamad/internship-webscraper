@@ -1,2 +1,27 @@
 node_modules/
 *.json
+.env
+
+# prisma ignores
+node_modules/
+generated/prisma/
+yarn-error.log/
+vendor/
+tmp/
+dist/
+.DS_Store
+.idea
+tmp-resolvers
+package-lock.json
+flow-typed
+yarn.lock
+orm/**/migrations/
+misc/**/migrations/
+databases/**/migrations/
+experimental/**/*.db
+.next
+.vscode/
+.nuxt
+dev.db
+*.env*
+!.env.example

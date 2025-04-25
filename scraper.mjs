@@ -5,10 +5,11 @@ import puppeteer from 'puppeteer';
 // titleClass: the name of the css class that contains the title of the position. null by default. if null, then use linkClass for both
 // iframeClass: the name of the iframe's css class/id, if there is one. This is only required if an iframe is used (like in iCIMS) 
 export async function scraper(targetPath, linkClass, titleClass=null, iframeClass=null) {
+  let browser = null
   try {
     
     // Launch browser and open a browser page (chrome)
-    const browser = await puppeteer.launch({headless:false});  // Use param: { headless: false } to see the actual page rendering
+    browser = await puppeteer.launch({ headless: "new" });  // Use param: { headless: false } to see the actual page rendering
     let page = await browser.newPage();
 
     // Go to a specific job site on workday
@@ -28,7 +29,7 @@ export async function scraper(targetPath, linkClass, titleClass=null, iframeClas
     }
 
     // wait for the selector jobclass to be visible
-    await page.waitForSelector(linkClass);
+    await page.waitForSelector(linkClass, { timeout: 5000 });
     const jobLinks = await page.$$(linkClass);
 
     let jobTitles;
@@ -53,13 +54,13 @@ export async function scraper(targetPath, linkClass, titleClass=null, iframeClas
       results.push({ title: title, link: link })
     }
 
-    // close the browser page
-    await browser.close();
-
     console.log('successfully scraped: ', targetPath)
     return results
   
   } catch(e) {
     console.log(`Error occured while scraping (${targetPath}): ${e}`)
+  } finally {
+    // close browser
+    if (browser) await browser.close();
   }
 }
