@@ -1,18 +1,8 @@
 import { scraper } from "../scraper.mjs";
-import companyService from "./companyService.mjs";
+import * as companyService from "./companyService.mjs";
 import { PrismaClient, Prisma } from '@prisma/client'
 
 const prisma = new PrismaClient()
-
-
-// model Listing {
-//     id            Int         @id @default(autoincrement())
-//     title         String
-//     company       String
-//     link          String      @unique
-//     addedAt       DateTime    @default(now())
-//   }
-
 
 export async function scrapeAllJobs() {
     const allCompanies = await companyService.getAll();
@@ -20,7 +10,7 @@ export async function scrapeAllJobs() {
 
     for (let company of allCompanies) {
         const scraperResults = await scraper(company.jobBoard, company.linkClass, company.titleClass, company.iframeClass)
-        for (let listing in scraperResults) {
+        for (let listing of scraperResults) {
             listing.company = company.name;
             listingResult.push(listing);
         }
