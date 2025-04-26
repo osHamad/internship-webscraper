@@ -1,6 +1,8 @@
 import { scraper } from "../scraper.mjs";
-import { readFile, writeFile } from 'fs/promises';
-import { getAll } from "./companyService.mjs";
+import companyService from "./companyService.mjs";
+import { PrismaClient, Prisma } from '@prisma/client'
+
+const prisma = new PrismaClient()
 
 
 // model Listing {
@@ -13,19 +15,24 @@ import { getAll } from "./companyService.mjs";
 
 
 export async function scrapeAllJobs() {
-    const allCompanies = await getAll();
+    const allCompanies = await companyService.getAll();
+    let listingResult = [];
 
     for (let company of allCompanies) {
-        let jsonResult = { name: company.name, positions: [] }
         const scraperResults = await scraper(company.jobBoard, company.linkClass, company.titleClass, company.iframeClass)
-        jsonResult.positions.push(scraperResults)
-        results.push(jsonResult)
+        for (let listing in scraperResults) {
+            listing.company = company.name;
+            listingResult.push(listing);
+        }
     }
 
-    try {
-        await writeFile('output.json', JSON.stringify(results, null, 2), 'utf-8');
-        console.log('Data written to output.json');
-    } catch (err) {
-        console.error('Error writing file:', err);
-    }
+    return listingResult;
+}
+
+export async function addManyUnique(listings) {
+    const newListings = await prisma.listing.createMany({
+        data: listings,
+        skipDuplicates: true
+    });
+    return newListings;
 }

@@ -59,6 +59,7 @@ export async function scraper(targetPath, linkClass, titleClass=null, iframeClas
   
   } catch(e) {
     console.log(`Error occured while scraping (${targetPath}): ${e}`)
+    return []
   } finally {
     // close browser
     if (browser) await browser.close();
