@@ -1,0 +1,48 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-container {
+    background-color: #333;
+    padding: 1rem;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .nav-container a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .main-container {
+    padding: 2rem;
+  }
+  
+  .newsletter-card {
+    background-color: #f4f4f4;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border-radius: 5px;
+  }
+  
+  .filters {
+    margin-bottom: 1rem;
+  }
+  
+  .filters input, .filters select {
+    margin-right: 1rem;
+  }
+  
+  .jobs-table table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .jobs-table th, .jobs-table td {
+    border: 1px solid #ddd;
+    padding: 0.5rem;
+    text-align: left;
+  }
+  
