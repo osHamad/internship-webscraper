@@ -2,75 +2,54 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Job Finder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internship Finder</title>
     <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
 
     <!-- Navbar -->
     <%- include('partials/navbar') %>
 
-    <main class="container">
+    <!-- Newsletter Signup Card -->
+    <section class="card">
+        <h2>Stay Updated!</h2>
+        <form action="/subscribe" method="POST">
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <button class="primary-btn" type="submit">Subscribe</button>
+        </form>
+    </section>
 
-        <!-- Newsletter Signup Card -->
-        <section class="newsletter-card">
-            <h2>Stay Updated!</h2>
-            <p>Sign up for our newsletter to get the latest internships directly to your inbox.</p>
-            <form action="/subscribe" method="POST">
-                <input type="email" name="email" placeholder="Enter your email" required>
-                <button type="submit">Subscribe</button>
-            </form>
-        </section>
-
-        <!-- Filters -->
-        <section class="filters">
-            <input type="text" placeholder="Search by company..." name="company-filter">
-            <input type="text" placeholder="Search by title..." name="title-filter">
-            <select name="location-filter">
-                <option value="">All Locations</option>
-                <option value="remote">Remote</option>
-                <option value="new-york">New York</option>
-                <option value="ottawa">Ottawa</option>
+    <!-- Job Listings Table -->
+    <section class="table-container">
+        <div class="filters">
+            <input type="text" placeholder="Search by Title">
+            <select>
+                <option value="">Filter by Location</option>
+                <option value="Remote">Remote</option>
+                <option value="On-site">On-site</option>
             </select>
-            <button>Apply Filters</button>
-        </section>
+            <select>
+                <option value="">Filter by Type</option>
+                <option value="Internship">Internship</option>
+                <option value="Co-op">Co-op</option>
+            </select>
+        </div>
 
-        <!-- Job Listings Table -->
-        <section class="job-listings">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Company</th>
-                        <th>Title</th>
-                        <th>Location</th>
-                        <th>Link</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Placeholder rows -->
-                    <tr>
-                        <td>Company A</td>
-                        <td>Software Intern</td>
-                        <td>Remote</td>
-                        <td><a href="#">View</a></td>
-                    </tr>
-                    <tr>
-                        <td>Company B</td>
-                        <td>Data Analyst Intern</td>
-                        <td>New York</td>
-                        <td><a href="#">View</a></td>
-                    </tr>
-                    <tr>
-                        <td>Company C</td>
-                        <td>Backend Developer Intern</td>
-                        <td>Ottawa</td>
-                        <td><a href="#">View</a></td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-
-    </main>
-
+        <table id="job-table">
+            <thead>
+                <tr>
+                    <th>Position</th>
+                    <th>Company</th>
+                    <th>Location</th>
+                    <th>Posted</th>
+                    <th>Apply</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </section>
+    <script src="/js/home.js"></script>
 </body>
 </html>

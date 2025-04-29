@@ -16,6 +16,7 @@ datasource db {
 model Company {
   id            Int         @id @default(autoincrement())
   name          String
+  location      String      @default("Unknown")
   jobBoard      String      @unique
   linkClass     String
   titleClass    String?

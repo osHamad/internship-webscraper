@@ -7,6 +7,7 @@ import path from 'path'
 import companyRouter from './routes/companyRouter.mjs'
 import listingRouter from './routes/listingRouter.mjs'
 import clientRouter from './routes/clientRouter.mjs'
+import adminRouter from './routes/adminRouter.mjs'
 
 // Import utils/services/misc
 import * as scraperService from './services/scraperService.mjs';
@@ -27,6 +28,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 // Add routers
+app.use('/admin', adminRouter);
 app.use('/company', companyRouter);
 app.use('/listing', listingRouter);
 app.use('/', clientRouter);
@@ -38,7 +40,9 @@ cron.schedule('0 0 * * *', async () => {
   const addedJobs = await scraperService.addManyUnique(allJobs);
   console.log('jobs added: ', addedJobs);
 })
-
+const allJobs = await scraperService.scrapeAllJobs();
+const addedJobs = await scraperService.addManyUnique(allJobs);
+console.log('jobs added: ', addedJobs);
 // Start server
 app.listen(PORT, () => {
   console.log('Server is running on port: ', PORT);

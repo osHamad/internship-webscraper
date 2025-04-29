@@ -1,0 +1,32 @@
+#company-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.company-entry-section, .company-entry {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .company-entry, .company-entry-section {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .company-entry input, .company-entry-section input {
+    flex: 1 1 45%;
+    min-width: 200px;
+  }
+}

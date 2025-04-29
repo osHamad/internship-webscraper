@@ -11,7 +11,8 @@ export async function addOne(company) {
 
 export async function addMany(companies) {
     const newCompanies = await prisma.company.createMany({
-        data: companies
+        data: companies,
+        skipDuplicates: true
     });
     return newCompanies;
 }

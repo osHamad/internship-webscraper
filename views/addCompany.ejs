@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internship Finder</title>
+    <link rel="stylesheet" href="/css/addCompany.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <%- include('partials/adminNavbar') %>
+
+  <!-- Add new company Card -->
+  <section class="card">
+      <h2>Add Company to Scraper</h2>
+      <form id="company-form">
+        <div id="entries">
+          <div class="company-entry">
+            <div class="company-entry-section">
+              <input type="text" id="name" placeholder="Company Name*" required />
+              <input type="text" id="location" placeholder="Location*" required />
+              <input type="url" id="jobBoard" placeholder="Job Board Link*" required />
+            </div>
+            <div class="company-entry-section">
+              <input type="text" id="linkClass" placeholder="Link Class*" required />
+              <input type="text" id="titleClass" placeholder="Title Class (optional)" />
+              <input type="text" id="iframeClass" placeholder="iFrame Class (optional)" />
+            </div>
+          </div>
+        </div>
+        <button type="button" class="secondary-btn" id="add-btn">+ Add Another</button>
+        <button type="button" class="primary-btn" id="submit-btn">Submit</button>
+      </form>
+  </section>
+  <script src="/js/addCompany.js"></script>
+</body>
+</html>

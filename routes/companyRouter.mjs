@@ -10,7 +10,7 @@ router.post('/add-one', async (req, res) => {
 });
 
 router.post('/add-many', async (req, res) => {
-    const companies = req.body.companies;
+    const companies = req.body;
     const newCompanies = await companyService.addMany(companies);
     res.json(newCompanies);
 });
