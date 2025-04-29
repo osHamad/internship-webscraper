@@ -40,9 +40,7 @@ cron.schedule('0 0 * * *', async () => {
   const addedJobs = await scraperService.addManyUnique(allJobs);
   console.log('jobs added: ', addedJobs);
 })
-const allJobs = await scraperService.scrapeAllJobs();
-const addedJobs = await scraperService.addManyUnique(allJobs);
-console.log('jobs added: ', addedJobs);
+
 // Start server
 app.listen(PORT, () => {
   console.log('Server is running on port: ', PORT);
