@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Modify Companies</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <%- include('partials/adminNavbar') %>
+
+    <!-- Job Listings Table -->
+    <section class="table-container">
+        <div class="filters">
+            <input type="text" placeholder="Search by Title">
+            <select>
+                <option value="">Filter by Location</option>
+                <option value="Remote">Remote</option>
+                <option value="On-site">On-site</option>
+            </select>
+        </div>
+
+        <table id="company-table">
+            <thead>
+                <tr>
+                    <th>Company</th>
+                    <th>Location</th>
+                    <th>Job Board</th>
+                    <th>Link Class</th>
+                    <th>Title Class</th>
+                    <th>iframe Class</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </section>
+    <script src="/js/modifyCompanies.js"></script>
+</body>
+</html>

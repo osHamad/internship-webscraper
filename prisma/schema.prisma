@@ -21,6 +21,7 @@ model Company {
   linkClass     String
   titleClass    String?
   iframeClass   String?
+  addedAt       DateTime    @default(now())
 }
 
 model Listing {
@@ -31,6 +32,11 @@ model Listing {
   addedAt       DateTime    @default(now())
 }
 
-model Users {
+model Subscriber {
   email         String      @id
+}
+
+model Admin {
+  email         String      @id
+  password      String
 }

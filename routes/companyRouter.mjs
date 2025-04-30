@@ -20,4 +20,24 @@ router.get('/get-all', async (req, res) => {
     res.json(companies)
 })
 
+router.post('/delete-one', async (req, res) => {
+    const companyId = req.body.id;
+    const deletedCompany = await companyService.deleteOne(companyId);
+    res.json(deletedCompany);
+})
+
+router.post('/update-one', async (req, res) => {
+    const company = req.body;
+    const updatedCompany = companyService.updateOne(
+        company.id, 
+        company.name, 
+        company.location, 
+        company.jobBoard, 
+        company.linkClass, 
+        company.titleClass, 
+        company.iframeClass
+    );
+    res.json(updatedCompany);
+})
+
 export default router;

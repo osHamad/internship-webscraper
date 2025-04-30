@@ -1,3 +1,4 @@
+document.addEventListener('DOMContentLoaded', updateJobTable());
 
 function formatDate(date) {
     const dayLength = 60 * 60 * 24 * 1000
@@ -54,5 +55,3 @@ function updateJobTable() {
         tableBody.appendChild(row);
     })
 }
-
-updateJobTable()

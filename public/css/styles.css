@@ -68,9 +68,81 @@ nav a:hover {
 .primary-btn {
     background-color: #6b5bd2;
     color: white;
-    margin-top: 0.5rem;
 }
 
-/* .card button:hover {
-    background-color: #6657c7;
-} */
+/* Filter Inputs */
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .filters input[type="text"],
+  .filters select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  
+  /* Table */
+  .table-container {
+    max-width: 1100px; /* <-- Make table less wide */
+    margin: 0 auto; /* <-- Center table */
+    overflow-x: auto;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  thead {
+    background-color: #f0f0f0;
+  }
+  
+  thead th {
+    text-align: left;
+    padding: 15px;
+    font-size: 16px;
+  }
+  
+  tbody td {
+    padding: 15px;
+    border-top: 1px solid #eee;
+  }
+  
+  /* Zebra Striping */
+  tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+td button {
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+td .button-group {
+    display: flex;
+    gap: 0.5rem;
+}
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .filters {
+      flex-direction: column;
+    }
+  
+    nav {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+  

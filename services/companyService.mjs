@@ -21,3 +21,29 @@ export async function getAll() {
     const companies = await prisma.company.findMany();
     return companies;
 }
+
+export async function deleteOne(companyId) {
+    const deletedCompany = await prisma.company.delete({
+        where: {
+            id: companyId
+        }
+    });
+    return deletedCompany;
+}
+
+export async function updateOne(companyId, name, location, jobBoard, linkClass, titleClass, iframeClass) {
+    const updatedCompany = await prisma.company.update({
+        where: {
+            id: companyId
+        },
+        data: {
+            name: name,
+            location: location,
+            jobBoard: jobBoard,
+            linkClass: linkClass,
+            titleClass: titleClass,
+            iframeClass: iframeClass
+        }
+    })
+    return updatedCompany;
+}
