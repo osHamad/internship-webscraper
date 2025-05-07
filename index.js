@@ -1,7 +1,6 @@
 // Import node modules
 import express from 'express';
 import cron from 'node-cron';
-import path from 'path'
 
 // Import express routers
 import companyRouter from './routes/companyRouter.mjs'

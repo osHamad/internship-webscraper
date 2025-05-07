@@ -1,6 +1,6 @@
 import { scraper } from "../scraper.mjs";
 import * as companyService from "./companyService.mjs";
-import { PrismaClient, Prisma } from '@prisma/client'
+import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
 

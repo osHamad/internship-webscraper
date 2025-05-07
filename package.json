@@ -13,18 +13,14 @@
   "license": "ISC",
   "dependencies": {
     "@prisma/client": "^6.6.0",
-    "axios": "^1.8.4",
-    "cheerio": "^1.0.0",
-    "csv-writer": "^1.6.0",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
-    "lowdb": "^7.0.1",
     "node-cron": "^3.0.3",
-    "node-fetch": "^3.3.2",
-    "nodemailer": "^6.10.1",
-    "nodemon": "^3.1.9",
-    "prisma": "^6.6.0",
     "puppeteer": "^24.6.1"
   },
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "nodemon": "^3.1.10",
+    "prisma": "^6.7.0"
+  }
 }
