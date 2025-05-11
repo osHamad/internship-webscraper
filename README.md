@@ -4,7 +4,7 @@ This application is meant to scrape the internet for intern positions from a pre
 
 ## Contributing
 
-Before contributing, please read the CONTRIBUTING.md file for any guidelines. This will include how to submit pull requests, naming conventions, tech stack, rules, etc.
+Before contributing, please read the [CONTRIBUTING.md](https://github.com/osHamad/internship-webscraper/blob/master/CONTRIBUTING.md) file for any guidelines. This will include how to submit pull requests, naming conventions, tech stack, rules, etc.
 
 ## Prerequisites
 
