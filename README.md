@@ -2,6 +2,10 @@
 This application is meant to scrape the internet for intern positions from a predefined set of companies (mainly Ottawa or remote), and then send weekly/daily updates on new open positions through email.
 
 
+## Contributing
+
+Before contributing, please read the CONTRIBUTING.md file for any guidelines. This will include how to submit pull requests, naming conventions, tech stack, rules, etc.
+
 ## Prerequisites
 
 Ensure you have the following installed/setup on your system:
