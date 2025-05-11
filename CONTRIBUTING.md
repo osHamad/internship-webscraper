@@ -2,6 +2,13 @@
 
 In this page, you will find some instructions, "how-to's" and guidelines for anyone who is contributing to this project
 
+## Tech stack
+- `Node` for the backend
+- `ejs` for rendering frontend (HTML with embedded JavaScript)
+- `Prisma` for working with databases in a simpler way
+- `express` for creating servers
+- `Postgresql` for the database
+
 ## What to contribute
 ### Creating an issue
 If you notice something wrong (bug, documentation, fix) or you wish to add a feature (enhancement, feature), you may create an issue
