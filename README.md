@@ -28,6 +28,10 @@ cd <folder-name
 ```bash
 git clode git@github.com:osHamad/internship-webscraper.git  # make sure you have ssh set up
 ```
+or if you are contributing to the project, then:
+```bash
+git clode git@github.com:<your-username>/internship-webscraper.git
+```
 
 ### Setup node dependencies
 ```bash
