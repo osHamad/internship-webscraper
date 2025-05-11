@@ -16,6 +16,13 @@ If you notice something wrong (bug, documentation, fix) or you wish to add a fea
 ### Creating a pull request
 Contributions to this project are limited to resolving issues in the [Issues](https://github.com/osHamad/internship-webscraper/issues) tab. You MAY NOT submit a pull request unless it references an existing issue.
 
+## Working on issues
+If an issue you would like to work on exists, please assign it to yourself so that others know you are working on it
+
+If you see an issue is already assigned to someone, do not touch it without asking the person in the comments (or elsewhere) first
+
+Feel free to create an issue that you feel needs to be worked on. Make sure to apply appropriate tags
+
 ## Forking and cloning
 
 Just like any other repo, you must fork and clone this repo to contribute
