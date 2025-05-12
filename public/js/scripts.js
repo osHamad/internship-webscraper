@@ -8,3 +8,13 @@ function displayNotification(status, message) {
         setTimeout(() => notification.innerHTML, 3500); // remove from DOM
     }
 }
+
+function displayModal() {
+    const modal = document.getElementById('modal')
+    modal.style.display = 'flex'
+}
+
+function hideModal() {
+    const modal = document.getElementById('modal')
+    modal.style.display = 'none'
+}

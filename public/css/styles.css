@@ -2,7 +2,7 @@
   --color-primary: #6b5bd2;
   --color-primary-light: #e5e5f7;
   --color-primary-dark: #4a4a8a;
-  --color-text: #111111;
+  --color-text: #070707;
   --color-text-light: #ffffff;
   --color-background: #fafafa;
   --color-success: #28a745;
@@ -72,6 +72,13 @@ nav a:hover {
   border-radius: 6px;
   font-weight: bold;
   cursor: pointer;
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  color: var(--color-text);
 }
 
 .secondary-btn {
@@ -187,6 +194,35 @@ td .button-group {
   background-color: var(--color-error);
   color: var(--color-text-light);
 }
+
+
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(8px);
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+
+  @keyframes fadeIn {
+    from { opacity: 0 }
+    to { opacity: 1 }
+  }
+
+  @keyframes slideIn {
+    from { transform: translateY(-20px); opacity: 0 }
+    to { transform: translateY(0); opacity: 1 }
+  }
+
+
   
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -198,4 +234,14 @@ td .button-group {
     flex-direction: column;
     gap: 10px;
   }
+}
+
+
+button:hover {
+    filter: brightness(0.9);
+}
+
+button {
+  transition: filter 0.2s ease-out;
+  transition: filter 0.1s ease-in;
 }
