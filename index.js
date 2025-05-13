@@ -32,6 +32,9 @@ app.use('/company', companyRouter);
 app.use('/listing', listingRouter);
 app.use('/', clientRouter);
 
+// REMOVE LATER
+app.get('/test', (req, res)=>{res.render('test')})
+
 // Schedule webscrape task
 // Runs every day at midnight
 cron.schedule('0 0 * * *', async () => {

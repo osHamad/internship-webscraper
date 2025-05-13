@@ -9,12 +9,12 @@ function displayNotification(status, message) {
     }
 }
 
-function displayModal() {
-    const modal = document.getElementById('modal')
-    modal.style.display = 'flex'
+function displayModal(modalName) {
+    const modal = document.getElementById(modalName)
+    modal.classList.remove('hidden')
 }
 
-function hideModal() {
-    const modal = document.getElementById('modal')
-    modal.style.display = 'none'
+function hideModal(modalName) {
+    const modal = document.getElementById(modalName)
+    modal.classList.add('hidden')
 }
