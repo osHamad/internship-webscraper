@@ -36,6 +36,17 @@
             <tbody></tbody>
         </table>
     </section>
+
+    <div class="modal hidden" id="delete-modal">
+        <div class="card" id="delete-card">
+            <h3 id="delete-modal-text">Are you sure you want to delete this company?</h3>
+            <button class="button secondary-btn" type="button" id="delete-modal-confirm">Delete</button>
+            <button class="button primary-btn" type="button" id="delete-modal-cancel">Cancel</button>
+        </div>
+    </div>
+    <%- include('partials/notification') %>
+
+    <script src="/js/scripts.js"></script>
     <script src="/js/modifyCompanies.js"></script>
 </body>
 </html>

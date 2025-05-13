@@ -25,7 +25,7 @@ export async function getAll() {
 export async function deleteOne(companyId) {
     const deletedCompany = await prisma.company.delete({
         where: {
-            id: companyId
+            id: parseInt(companyId)
         }
     });
     return deletedCompany;
@@ -34,7 +34,7 @@ export async function deleteOne(companyId) {
 export async function updateOne(companyId, name, location, jobBoard, linkClass, titleClass, iframeClass) {
     const updatedCompany = await prisma.company.update({
         where: {
-            id: companyId
+            id: parseInt(companyId)
         },
         data: {
             name: name,
