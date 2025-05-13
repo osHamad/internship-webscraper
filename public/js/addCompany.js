@@ -1,27 +1,4 @@
-document.getElementById('add-btn').addEventListener('click', addCompanySection);
 document.getElementById('submit-btn').addEventListener('click', submitCompanies);
-
-function addCompanySection() {
-    const newHr = document.createElement('hr');
-    const newEntry = document.createElement('div');
-    const entriesDiv = document.getElementById('entries');
-    newEntry.innerHTML = `
-        <div class="company-entry">
-            <div class="company-entry-section">
-              <input type="text" id="name" placeholder="Company Name*" required />
-              <input type="text" id="location" placeholder="Location*" required />
-              <input type="url" id="link" placeholder="Job Board Link*" required />
-            </div>
-            <div class="company-entry-section">
-              <input type="text" id="linkClass" placeholder="Link Class*" required />
-              <input type="text" id="titleClass" placeholder="Title Class (optional)" />
-              <input type="text" id="iframeClass" placeholder="iFrame Class (optional)" />
-            </div>
-        </div>
-    `;
-    entriesDiv.appendChild(newHr);
-    entriesDiv.appendChild(newEntry);
-}
 
 function submitCompanies() {
     let newCompanies = []
@@ -62,11 +39,17 @@ function submitCompanies() {
             newCompanies
         )
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Success:', data);
+    .then(response => {
+        if (response.ok) {
+            document.getElementById("name").value = ""
+            document.getElementById("location").value = ""
+            document.getElementById("jobBoard").value = ""
+            document.getElementById("linkClass").value = ""
+            document.getElementById("titleClass").value = ""
+            document.getElementById("iframeClass").value = ""
+            displayNotification("success", `New company successfully added`)
+        } else {
+            displayNotification("an error occurred while adding the company")
+        }
     })
-    .catch(error => {
-        console.error('Error:', error);
-    });
 }
