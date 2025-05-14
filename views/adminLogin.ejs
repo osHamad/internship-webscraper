@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <a href="/">Home</a>
+    </nav>
+
+    <section class="card">
+        <h2>Admin Login</h2>
+        <form id="login-form">
+            <div style="margin-bottom: 15px;">
+                <input type="email" id="email" placeholder="Email" required>
+            </div>
+            <div style="margin-bottom: 25px;">
+                <input type="password" id="password" placeholder="Password" required>
+            </div>
+            <button type="button" class="primary-btn" id="login-btn">Login</button>
+        </form>
+    </section>
+
+    <%- include('partials/notification') %>
+
+    <script src="/js/scripts.js"></script>
+    <script src="/js/adminLogin.js"></script>
+</body>
+</html>
