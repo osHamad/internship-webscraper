@@ -18,7 +18,7 @@ function handleLogin() {
         return;
     }
     
-    fetch('/admin/login', {
+    fetch('/admin/login', {  //I assume this is the correct endpoint for login
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -37,7 +37,7 @@ function handleLogin() {
     .then(data => {
         displayNotification('success', 'Login successful');
         setTimeout(() => {
-            window.location.href = '/'; //It should redirect to the admin dashboard if there is one
+            window.location.href = '/admin'; //It should redirect to the admin dashboard if there is one
         }, 1000);
     })
     .catch(error => {
