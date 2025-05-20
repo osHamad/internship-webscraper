@@ -14,29 +14,29 @@ datasource db {
 }
 
 model Company {
-  id            Int         @id @default(autoincrement())
+  id            Int           @id @default(autoincrement())
   name          String
-  location      String      @default("Unknown")
-  jobBoard      String      @unique
+  location      String        @default("Unknown")
+  jobBoard      String        @unique
   linkClass     String
   titleClass    String?
   iframeClass   String?
-  addedAt       DateTime    @default(now())
+  addedAt       DateTime      @default(now())
 }
 
 model Listing {
-  id            Int         @id @default(autoincrement())
+  id            Int           @id @default(autoincrement())
   title         String
   company       String
-  link          String      @unique
-  addedAt       DateTime    @default(now())
+  link          String        @unique
+  addedAt       DateTime      @default(now())
 }
 
-model Subscriber {
-  email         String      @id
-}
-
-model Admin {
-  email         String      @id
+model User {
+  id            String        @id @default(uuid())
+  username      String        @unique
+  email         String        @unique
   password      String
+  role          String        @default("USER")
+  createAt      DateTime      @default(now())
 }
