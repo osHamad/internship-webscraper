@@ -11,10 +11,15 @@ import adminRouter from './routes/adminRouter.mjs'
 // Import utils/services/misc
 import * as scraperService from './services/scraperService.mjs';
 import { __dirname } from './utils/paths.mjs'
+import { createMasterUser } from './services/userService.mjs';
+import { getEnvOrThrow } from './utils/helpers.mjs';
 
 // Create express server and define env variables
 const app = express();
 const PORT = process.env.PORT || 3000
+const MASTER_EMAIL = getEnvOrThrow(process.env.MASTER_EMAIL)
+const MASTER_PASSWORD = getEnvOrThrow(process.env.MASTER_PASSWORD)
+const MASTER_USERNAME = getEnvOrThrow(process.env.MASTER_USERNAME)
 
 // Configure ejs views
 app.set('view engine', 'ejs')
@@ -42,6 +47,13 @@ cron.schedule('0 0 * * *', async () => {
   const addedJobs = await scraperService.addManyUnique(allJobs);
   console.log('jobs added: ', addedJobs);
 })
+
+// Create master admin account
+createMasterUser(
+  MASTER_USERNAME,
+  MASTER_EMAIL,
+  MASTER_PASSWORD
+)
 
 // Start server
 app.listen(PORT, () => {
