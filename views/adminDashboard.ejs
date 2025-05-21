@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/adminDashboard.css">
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <%- include('partials/adminNavbar') %>
+
+    <div class="menu-container">
+        <div class="menu-column">
+            <h3>Companies</h3>
+            <a href="/admin/modify-companies">Update and delete</a>
+            <a href="/admin/add-company">Add new</a>
+        </div>
+        <div class="menu-column">
+            <h3>Listings</h3>
+        </div>
+        <div class="menu-column">
+            <h3>Users</h3>
+        </div>
+    </div>
+
+</body>
+</html>

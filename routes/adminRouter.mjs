@@ -10,4 +10,8 @@ router.get('/modify-companies', async (req, res) => {
     res.render('modifyCompanies');
 })
 
+router.get('/dashboard', (req, res) => {
+    res.render('adminDashboard')
+})
+
 export default router;
