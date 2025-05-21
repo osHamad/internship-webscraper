@@ -18,7 +18,7 @@ export function hasPermission(permission) {
         if (!req.session.login) return res.json({ message: "user is not authorized" })
 
         const permissions = {
-            "MASTER": new Set(["add.company"]),
+            "MASTER": new Set([]),
             "ADMIN": new Set([]),
             "USER": new Set([])
         }
