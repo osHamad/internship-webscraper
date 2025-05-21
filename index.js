@@ -15,6 +15,7 @@ import * as scraperService from './services/scraperService.mjs';
 import { __dirname } from './utils/paths.mjs'
 import { createMasterUser } from './services/userService.mjs';
 import { getEnvOrThrow } from './utils/helpers.mjs';
+import { hasPermission } from './middleware/user.mjs';
 
 // Create express server and define env variables
 const app = express();

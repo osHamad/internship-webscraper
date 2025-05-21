@@ -1,7 +1,8 @@
 import jwt from 'jsonwebtoken';
+import { getEnvOrThrow } from './helpers.mjs';
 
-const JWT_SECRET = process.env.JWT_SECRET;
-const JWT_EXPIRE = '7d';
+const JWT_SECRET = getEnvOrThrow(process.env.JWT_SECRET);
+const JWT_EXPIRE = getEnvOrThrow(process.env.JWT_EXPIRE);
 
 export function generateToken(payload) {
     return jwt.sign(payload, JWT_SECRET, { expiresIn: JWT_EXPIRE });
