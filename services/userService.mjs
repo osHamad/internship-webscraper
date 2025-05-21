@@ -1,5 +1,6 @@
 import { PrismaClient } from '@prisma/client'
-import { hash } from 'bcrypt';
+import { compare, hash } from 'bcrypt';
+import { generateToken } from '../utils/jwts.mjs';
 
 const prisma = new PrismaClient()
 
@@ -20,4 +21,25 @@ export async function createMasterUser(username, email, password) {
     });
 
     return newMaster;
+}
+
+export async function login(usernameOrEmail, password) {
+    const user = await prisma.user.findFirst({
+        where: {
+            OR: [
+                { email: usernameOrEmail },
+                { username: usernameOrEmail }
+            ]
+        }
+    })
+
+    if (!user) return { error: 404 }
+
+    const samePassword = await compare(password, user.password)
+    if (!samePassword) return { error: 403 }
+
+
+    const token = generateToken({ userId: user.id });
+
+    return { token: token }
 }
