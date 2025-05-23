@@ -5,8 +5,6 @@ import { isLoggedIn, isLoggedOut } from '../middleware/user.mjs';
 const router = express.Router();
 
 router.post('/login', isLoggedOut, async (req, res) => {
-    if (req.session.login) return res.json({ message: "user already logged in"})
-
     const usernameOrEmail = req.body.usernameOrEmail
     const password = req.body.password
 
@@ -18,7 +16,7 @@ router.post('/login', isLoggedOut, async (req, res) => {
         res.json({ message: "logged in" })
 
     } else {
-        res.json({ message: "incorrect password or username/email" })
+        res.status(400).json({ message: "incorrect password or username/email" })
     }
 
 })

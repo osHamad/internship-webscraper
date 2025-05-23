@@ -4,21 +4,48 @@ import { verifyToken } from "../utils/jwts.mjs"
 const prisma = new PrismaClient()
 
 export function isLoggedIn(req, res, next) {
-    if (!req.session.login) return res.json({ message: "user is logged out"})
+    if (!req.session.login) {
+        switch (req.method) {
+            case "POST":
+                return res.json({ message: "user is logged out"})
+
+            case "GET":
+                return res.send("you are logged out")
+        }
+    }
     next()
 }
 
 export function isLoggedOut(req, res, next) {
-    if (req.session.login) return res.json({ message: "user is logged in"})
+    if (req.session.login) {
+        switch (req.method) {
+            case "POST":
+                return res.json({ message: "user is already logged in"})
+
+            case "GET":
+                return res.redirect("/")
+        }
+    }
     next()
 }
 
 export function hasPermission(permission) {
     return async function(req, res, next) {
-        if (!req.session.login) return res.json({ message: "user is not authorized" })
+        if (!req.session.login) {
+            switch (req.method) {
+                case "POST":
+                    return res.json({ message: "user is not logged in" })
+            
+                case "GET":
+                    return res.redirect("/admin/login")
+
+                default:
+                    return
+            }
+        }
 
         const permissions = {
-            "MASTER": new Set([]),
+            "MASTER": new Set(["view.dashboard"]),
             "ADMIN": new Set([]),
             "USER": new Set([])
         }
@@ -33,7 +60,18 @@ export function hasPermission(permission) {
 
         const role = user.role
 
-        if (!permissions[role].has(permission)) return res.json({message: "user is not authorized"})
+        if (!permissions[role].has(permission)) {
+            switch (req.method) {
+                case "POST":
+                    return res.json({message: "user is not authorized"})
+
+                case "GET":
+                    return res.send("403 ERROR: restricted")
+            
+                default:
+                    break;
+            }
+        }
         
         next()
     }

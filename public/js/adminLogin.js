@@ -10,21 +10,21 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function handleLogin() {
-    const email = document.getElementById('email').value.trim();
+    const usernameOrEmail = document.getElementById('usernameOrEmail').value.trim();
     const password = document.getElementById('password').value.trim();
     
-    if (!email || !password) {
+    if (!usernameOrEmail || !password) {
         displayNotification('error', 'Fields cannot be empty');
         return;
     }
     
-    fetch('/admin/login', {  //I assume this is the correct endpoint for login
+    fetch('/user/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            email,
+            usernameOrEmail,
             password
         })
     })
@@ -37,10 +37,10 @@ function handleLogin() {
     .then(data => {
         displayNotification('success', 'Login successful');
         setTimeout(() => {
-            window.location.href = '/admin'; //It should redirect to the admin dashboard if there is one
+            window.location.href = '/admin';
         }, 1000);
     })
     .catch(error => {
-        displayNotification('error', 'Invalid email or password');
+        displayNotification('error', 'Invalid email/username or password');
     });
 }
