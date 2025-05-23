@@ -33,10 +33,10 @@ export async function login(usernameOrEmail, password) {
         }
     })
 
-    if (!user) return { error: 404 }
+    if (!user) {console.log("404");return { error: 404 };}
 
     const samePassword = await compare(password, user.password)
-    if (!samePassword) return { error: 403 }
+    if (!samePassword) {console.log("403");return { error: 403 }}
 
 
     const token = generateToken({ userId: user.id });
