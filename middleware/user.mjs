@@ -45,8 +45,8 @@ export function hasPermission(permission) {
         }
 
         const permissions = {
-            "MASTER": new Set(["view.dashboard"]),
-            "ADMIN": new Set([]),
+            "MASTER": new Set(["view.admin-pages", "add.company", "delete.company", "update.company"]),
+            "ADMIN": new Set(["view.admin-pages", "add.company", "delete.company", "update.company"]),
             "USER": new Set([])
         }
 
